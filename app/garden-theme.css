@@ -1,0 +1,72 @@
+/*
+ * D-Garden ağaç teması — app/globals.css içinde `@import "tailwindcss";` satırının
+ * hemen altına bu dosyanın içeriğini yapıştır (ya da `@import "./garden-theme.css";`).
+ *
+ * Renkler CSS değişkeni olduğu için hem Tailwind sınıfları (bg-garden-accent vb.)
+ * hem de canvas çizicisi aynı kaynaktan okur.
+ */
+
+:root {
+  --garden-bg: #edf5f0;
+  --garden-bg-2: #f7fbf8;
+  --garden-ink: #173a2c;
+  --garden-muted: #6a7a72;
+  --garden-accent: #2f6b4c;
+  --garden-accent-ink: #ffffff;
+  --garden-track: #d8e9de;
+  --garden-panel: #ffffff;
+  --garden-line: #d6e4db;
+  /* canvas renkleri */
+  --garden-bark: #6b4a30;
+  --garden-bark-hi: #8f6c4b;
+  --garden-root: #a5825f;
+  --garden-ground: #d3e8da;
+  --garden-cloud: #d9ece1;
+  --garden-glow: #f2dcb4;
+}
+
+/*
+ * Koyu tema yalnızca <html class="dark"> ile açılır. Uygulamanın geri kalanı henüz
+ * açık temada olduğu için sistem tercihi (prefers-color-scheme) ağaca uygulanmaz;
+ * aksi hâlde beyaz kartların içinde koyu bir ağaç sahnesi çiziliyordu.
+ */
+:root.dark {
+  --garden-bg: #0e1712;
+  --garden-bg-2: #121f19;
+  --garden-ink: #e2eee7;
+  --garden-muted: #92a59b;
+  --garden-accent: #7cc39b;
+  --garden-accent-ink: #0e1712;
+  --garden-track: #1f3329;
+  --garden-panel: #14221b;
+  --garden-line: #243a2f;
+  --garden-bark: #8b6747;
+  --garden-bark-hi: #ab8562;
+  --garden-root: #b39271;
+  --garden-ground: #1a2e23;
+  --garden-cloud: #192b21;
+  --garden-glow: #5e4a2f;
+}
+
+@theme inline {
+  --color-garden-bg: var(--garden-bg);
+  --color-garden-ink: var(--garden-ink);
+  --color-garden-muted: var(--garden-muted);
+  --color-garden-accent: var(--garden-accent);
+  --color-garden-accent-ink: var(--garden-accent-ink);
+  --color-garden-track: var(--garden-track);
+  --color-garden-panel: var(--garden-panel);
+  --color-garden-line: var(--garden-line);
+  --color-garden-root: var(--garden-root);
+
+  /* layout.tsx içinde next/font ile tanımlanan Fraunces; yoksa Georgia'ya düşer */
+  --font-garden: var(--font-fraunces, Georgia), Georgia, 'Times New Roman', serif;
+
+  --animate-garden-badge: garden-badge 2.4s ease forwards;
+  @keyframes garden-badge {
+    0% { opacity: 0; transform: translateY(6px); }
+    12% { opacity: 1; transform: none; }
+    75% { opacity: 1; transform: none; }
+    100% { opacity: 0; transform: translateY(-4px); }
+  }
+}

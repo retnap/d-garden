@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# logs and temporary files
+*.log
+*.tmp
+
+# private keys and certificates
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# OS files
+Thumbs.db
